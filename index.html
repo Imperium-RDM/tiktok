@@ -3,86 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@imperiumcity.it su TikTok</title>
+
+  <title>imperiumcity.it • TikTok</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: Arial, sans-serif;
       background: #000;
       color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
       text-align: center;
     }
 
-    .box {
+    .container {
       width: 90%;
-      max-width: 400px;
+      max-width: 380px;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: 26px;
+      margin: 0 0 28px;
     }
 
-    p {
-      color: #aaa;
-      margin-bottom: 30px;
-    }
-
-    a {
+    .button {
       display: block;
+      width: 100%;
       padding: 16px;
-      margin: 12px 0;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 17px;
-    }
-
-    .tiktok {
       background: #fff;
       color: #000;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 22px;
     }
 
-    .browser {
-      border: 1px solid #444;
-      color: #fff;
+    .warning {
+      color: #ff3030;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .username {
+      display: inline-block;
+      margin-top: 8px;
+      color: #ff3030;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    #copied {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #888;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    #copied.show {
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h1>@imperiumcity.it</h1>
-    <p>Stai per essere reindirizzato su TikTok...</p>
+  <div class="container">
 
-    <a class="tiktok" href="https://www.tiktok.com/@imperiumcity.it">
+    <h1>@imperiumcity.it</h1>
+
+    <a
+      class="button"
+      href="https://www.tiktok.com/@imperiumcity.it"
+    >
       Apri TikTok
     </a>
 
-    <a class="browser" href="https://www.tiktok.com/@imperiumcity.it">
-      Continua sul browser
-    </a>
+    <p class="warning">
+      Se il pulsante non funziona,<br>
+      cercateci su TikTok:
+      <br>
+
+      <span
+        class="username"
+        onclick="copyUsername()"
+      >
+        imperiumcity.it
+      </span>
+
+      <span id="copied">✓ Nome copiato</span>
+    </p>
+
   </div>
 
   <script>
-    const username = "imperiumcity.it";
+    function copyUsername() {
+      navigator.clipboard.writeText("imperiumcity.it");
 
-    const appUrl = "tiktok://@imperiumcity.it";
-    const webUrl = "https://www.tiktok.com/@" + username;
+      const message = document.getElementById("copied");
+      message.classList.add("show");
 
-    // Prova ad aprire l'app TikTok
-    window.location.href = appUrl;
-
-    // Se l'app non viene aperta, rimane sulla pagina
-    setTimeout(() => {
-      window.location.href = webUrl;
-    }, 1800);
+      setTimeout(() => {
+        message.classList.remove("show");
+      }, 1500);
+    }
   </script>
 
 </body>
