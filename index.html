@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@imperiumcity.it su TikTok</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .box {
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    a {
+      display: block;
+      padding: 16px;
+      margin: 12px 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .tiktok {
+      background: #fff;
+      color: #000;
+    }
+
+    .browser {
+      border: 1px solid #444;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>@imperiumcity.it</h1>
+    <p>Stai per essere reindirizzato su TikTok...</p>
+
+    <a class="tiktok" href="https://www.tiktok.com/@imperiumcity.it">
+      Apri TikTok
+    </a>
+
+    <a class="browser" href="https://www.tiktok.com/@imperiumcity.it">
+      Continua sul browser
+    </a>
+  </div>
+
+  <script>
+    const username = "imperiumcity.it";
+
+    const appUrl = "tiktok://@imperiumcity.it";
+    const webUrl = "https://www.tiktok.com/@" + username;
+
+    // Prova ad aprire l'app TikTok
+    window.location.href = appUrl;
+
+    // Se l'app non viene aperta, rimane sulla pagina
+    setTimeout(() => {
+      window.location.href = webUrl;
+    }, 1800);
+  </script>
+
+</body>
+</html>
